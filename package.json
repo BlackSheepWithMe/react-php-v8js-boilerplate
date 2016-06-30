@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "author": "Robbie Hernandez <roberto.hernandez@clearlink.com>",
-  "license": "private",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": ""
