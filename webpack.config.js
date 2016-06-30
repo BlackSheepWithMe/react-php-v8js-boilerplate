@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const build = process.env.NODE_ENV === 'production';
+const output = (build)?'build':'tmp';
 
 module.exports = {
     entry: {
@@ -8,7 +9,7 @@ module.exports = {
     },
     devtool: build ? '' : 'source-map',
     output: {
-        path: path.join(__dirname, 'build/js/'),
+        path: path.join(__dirname, output + '/js/'),
         filename: 'app.js',
     },
     module: {

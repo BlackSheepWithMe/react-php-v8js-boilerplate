@@ -2,16 +2,16 @@
 
 $remove = explode('/', realpath(dirname(__FILE__)));
 $remove = array_filter($remove);
-$arr = explode('/', strtok($_SERVER["REQUEST_URI"], '?'));
+$arr = explode('/', strtok($_SERVER["REQUEST_URI"],'?'));
 $arr = array_filter($arr);
 $uri = '';
 $base = '';
 
 foreach ($arr as $v) {
   if (!in_array($v, $remove)) {
-    $uri .= '/' . $v;
+    $uri .= '/' .$v;
   } else {
-    $base .= '/' . $v;
+    $base .= '/' .$v;
   }
 }
 
@@ -44,16 +44,16 @@ if (class_exists('V8Js')) {
 <html>
 <head>
   <base href="<?=$base;?>">
-  <link rel="stylesheet" href="build/css/main.css">
+  <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
   <?php
-  if (class_exists('V8Js') && file_exists('build/js/app.js')) {
-    echo "<div id=\"app\"><div>" . executeJS(file_get_contents('build/js/app.js'), $uri) . "</div></div>";
+  if (class_exists('V8Js') && file_exists('js/app.js')) {
+    echo "<div id=\"app\"><div>".executeJS(file_get_contents('js/app.js'), $uri)."</div></div>";
   } else {
     echo "<div id=\"app\"></div>";
   }
   ?>
 </body>
-<script src="build/js/app.js"></script>
+<script src="js/app.js"></script>
 </html>

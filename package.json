@@ -14,18 +14,18 @@
   "bugs": "",
   "config": {
     "port": "1337",
-    "proxy": "http://localhost/react-php-v8js-boilerplate/"
+    "proxy": "http://localhost/react-php-v8js-boilerplate/tmp/"
   },
   "scripts": {
-    "postinstall": "npm run dev",
-    "clean": "rm -f build/{css/*,js/*,images/*}",
+    "postinstall": "mkdir tmp/ && cp src/index.php tmp/ && cp src/.htaccess tmp/ && npm run dev",
+    "clean": "rm -f tmp/{css/*,js/*,images/*}",
     "serve": "browser-sync start --config bs-config.js",
     "lint:css": "scss-lint -c .scss-lint.yml; exit 0",
     "lint:js": "eslint -c '.eslintrc' --ignore-path '.eslintignore' src/app; exit 0",
     "dev": "npm run clean && npm run dev:css && npm run dev:js && npm run dev:images && npm run watch",
-    "dev:css": "npm run lint:css && node-sass --output-style expanded -o build/css src/scss",
+    "dev:css": "npm run lint:css && node-sass --output-style expanded -o tmp/css src/scss && replace 'images/' '/react-php-v8js-boilerplate/tmp/images/' tmp/css/main.css; exit 0",
     "dev:js": "npm run lint:js && webpack --config 'webpack.config.js' --color",
-    "dev:images": "imagemin src/images build/images",
+    "dev:images": "imagemin src/images tmp/images",
     "build": "npm run clean && npm run build:css && npm run build:js && npm run build:images",
     "build:css": "node-sass --output-style compressed -o build/css src/scss && postcss -u autoprefixer --browsers='> 5% in US, last 2 versions, ie >= 11, and_chr >= 4.4, ios_saf >= 8.0, safari >= 8.0' -r build/css/* && mqpacker --sort build/css/* build/css/*",
     "build:js": "NODE_ENV=production webpack --config webpack.config.js --color",
