@@ -1,0 +1,15 @@
+%gtrans { // Global transition
+  transition: all .3s ease-in-out;
+}
+
+%clear {
+  &::after,
+  &::before {
+    display: table;
+    content: '';
+  }
+
+  &::after {
+    clear: both;
+  }
+}

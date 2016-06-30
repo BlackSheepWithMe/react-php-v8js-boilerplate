@@ -1,0 +1,69 @@
+@import 'core/settings';
+@import 'core/functions';
+@import 'core/mixins';
+@import 'core/placeholders';
+@import 'core/normalize';
+@import 'core/animations';
+
+// SMACSS property sort order
+
+// Quick Type Edits
+* {
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+body {
+  color: $color-body;
+  font-family: 'museo-sans', sans-serif;
+  font-size: 85%;
+  font-weight: 300;
+  text-align: center;
+
+  @include medium {
+    font-size: 95%;
+  }
+
+  @include large {
+    font-size: 150%;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $color-white;
+  font-family: 'museo-sans-rounded', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: rem(18);
+  line-height: 1.2em;
+
+  @include medium {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: em(40, 24);
+  }
+}
+
+h2 {
+  color: $color-body;
+  font-size: 1rem;
+
+  @include medium {
+    font-size: 1.3rem;
+  }
+}
+
+p,
+ol,
+ul {
+  line-height: em(19);
+}

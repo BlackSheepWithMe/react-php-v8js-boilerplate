@@ -1,0 +1,19 @@
+$global-font-size: 16;
+
+$max-width: 1200px;
+
+$breakpoints: (
+  small: 0,
+  medium: 640px,
+  large: 1025px,
+  xlarge: 1480px,
+  xxlarge: 1920px,
+);
+
+$color-body: #b1b2b3;
+$color-primary: #182236;
+$color-secondary: #7898ed;
+$color-tertiary: #6f8ee3;
+$color-white: #ffffff;
+$color-background: #2c3155;
+$color-box-shadow: rgba(black, .15);

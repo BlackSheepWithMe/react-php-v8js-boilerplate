@@ -1,0 +1,39 @@
+@keyframes bounceInUp {
+  0% {
+    transform: translate(-50%, -35%);
+    opacity: 0;
+  }
+
+  40% {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+
+  65% {
+    transform: translate(-50%, -48%);
+  }
+
+  100% {
+    transform: translate(-50%, -50%);
+  }
+}
+
+@keyframes slideInLeft {
+  0% {
+    transform: translate(100%, -50%);
+  }
+
+  100% {
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes slideInRight {
+  0% {
+    transform: translate(-100%, -50%);
+  }
+
+  100% {
+    transform: translate(0, -50%);
+  }
+}

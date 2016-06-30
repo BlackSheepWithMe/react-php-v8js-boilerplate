@@ -1,0 +1,76 @@
+@mixin bp($size) {
+  @if ($size == small-only) {
+    @media screen and (min-width: em(map-get($breakpoints, small))) and (max-width: em(map-get($breakpoints, medium))) {  @content;  }
+  } @else if($size == small) {
+    @media screen and (min-width: em(map-get($breakpoints, small))) {  @content;  }
+  } @else if($size == medium-only) {
+    @media screen and (min-width: em(map-get($breakpoints, medium))) and (max-width: em(map-get($breakpoints, large))) {  @content;  }
+  } @else if($size == medium) {
+    @media screen and (min-width: em(map-get($breakpoints, medium))) {  @content;  }
+  } @else if($size == large-only) {
+    @media screen and (min-width: em(map-get($breakpoints, large))) and (max-width: em(map-get($breakpoints, xlarge))) {  @content;  }
+  } @else if($size == large) {
+    @media screen and (min-width: em(map-get($breakpoints, large))) {  @content;  }
+  } @else if($size == xlarge-only) {
+    @media screen and (min-width: em(map-get($breakpoints, xlarge))) and (max-width: em(map-get($breakpoints, xxlarge))) {  @content;  }
+  } @else if($size == xlarge) {
+    @media screen and (min-width: em(map-get($breakpoints, xlarge))) {  @content;  }
+  } @else {
+    @error ''#{$size} is not a valid breakpoint'';
+  }
+}
+
+@mixin small {
+  @include bp(small) {
+    @content;
+  }
+}
+
+@mixin small-only {
+  @include bp(small-only) {
+    @content;
+  }
+}
+
+@mixin medium {
+  @include bp(medium) {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @include bp(medium-only) {
+    @content;
+  }
+}
+
+@mixin large {
+  @include bp(large) {
+    @content;
+  }
+}
+
+@mixin large-only {
+  @include bp(large-only) {
+    @content;
+  }
+}
+
+@mixin xlarge {
+  @include bp(xlarge) {
+    @content;
+  }
+}
+
+@mixin xlarge-only {
+  @include bp(xlarge-only) {
+    @content;
+  }
+}
+
+@mixin absolute($t, $r, $b, $l) {
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
